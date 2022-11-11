@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <head>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+    integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+    crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"
+    integrity="sha512-0qU9M9jfqPw6FKkPafM3gy2CBAvUWnYVOfNPDYKVuRTel1PrciTj+a9P3loJB+j0QmN2Y0JYQmkBBS8W+mbezg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    </head>
+<body>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    min-height: 100vh;
+}
+/* kalplerin sayfa içerisindeki pozisyonu ve animasyonu */
+.kalp {
+    position: fixed;
+    top: -1vh;
+    font-size: 2rem;
+    transform: translateY(0);
+    animation: fall 3s linear forwards;
+}
+/* Animasyon key'i */
+@keyframes fall {
+    to {
+        transform: translateY(105vh);
+    }
+}
+
+
+</style>
+
+
+
+    
+    <script src="script.js"></script>
+<script>
+/* Kalpleri rastgele oluşturan fonksiyon */
+
+function kalpOlustur() {
+  const kalp = document.createElement("div");
+  kalp.classList.add("kalp");
+  kalp.style.left = Math.random() * 100 + "vw";
+  kalp.style.animationDuration = Math.random() * 2 + 3 + "s";
+
+  kalp.innerText = "DAMLA";
+
+  document.body.appendChild(kalp);
+  setTimeout(() => {
+      kalp.remove();
+  },5000);
+}
+/* Javascript fonksiyonu oluşturduğumuz fonksiyonu belirtiği zamana göre çağırır */
+setInterval(kalpOlustur, 200);
+
+
+
+</script>
+
+
+
+
+</body>
+</html>
